@@ -1,0 +1,489 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>少女回路 SHOUJO KAIRO</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="少女回路(SHOUJO KAIRO)は、病みかわ・地雷系のサブカルコンセプトカフェ&バー。自分らしく、かわいく、最強に。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=DotGothic16&family=Zen+Maru+Gothic:wght@500;700;900&family=Cinzel:wght@500;700&display=swap">
+<style>
+/* Layout: フライヤーと同じ「ラベンダーの方眼ノート」に、チェキ・シール・絆創膏をベタベタ貼っていく。暗いネオンの帯が"お店の中"、紙の部分が"女の子のノート"。 */
+:root{
+  --paper:#eee6ff;        /* 方眼ノートの地 */
+  --grid:#d8c8f6;
+  --ink:#24123a;          /* ロゴの黒紫インク */
+  --ink-2:#5b4378;
+  --pink:#ff6fb5;         /* 溶けるハート */
+  --violet:#9a6cf0;       /* ネオン看板 */
+  --ice:#6fd3ff;          /* 心電図 */
+  --night:#160b25;        /* 店内の暗さ */
+  --milk:#fffaff;
+  --f-hand:"Hachi Maru Pop","Zen Maru Gothic",cursive;
+  --f-body:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",sans-serif;
+  --f-dot:"DotGothic16","Osaka-Mono",monospace;
+  --f-latin:"Cinzel","Times New Roman",serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);font-family:var(--f-body);font-weight:500;font-size:16px;line-height:1.9;overflow-x:hidden;
+  background-color:var(--paper);
+  background-image:
+    radial-gradient(circle at 12% 18%,rgba(255,111,181,.13),transparent 30%),
+    radial-gradient(circle at 88% 60%,rgba(154,108,240,.16),transparent 35%),
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:auto,auto,22px 22px,22px 22px;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--night)}
+a{color:inherit}
+img{display:block;max-width:100%}
+[hidden]{display:none!important}
+svg.defs{position:absolute;width:0;height:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:2px dashed var(--pink);outline-offset:3px}
+.ico{width:1em;height:1em;vertical-align:-.12em;fill:currentColor}
+
+/* ---------- glitch ---------- */
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none;opacity:0}
+.glitch::before{color:var(--pink);animation:gl1 5s infinite steps(1)}
+.glitch::after{color:var(--ice);animation:gl2 5s infinite steps(1)}
+@keyframes gl1{0%,91%,100%{opacity:0;transform:none;clip-path:none}92%{opacity:.85;transform:translate(-3px,1px);clip-path:inset(10% 0 55% 0)}94%{opacity:.85;transform:translate(3px,-1px);clip-path:inset(60% 0 8% 0)}96%{opacity:0}}
+@keyframes gl2{0%,92%,100%{opacity:0;transform:none;clip-path:none}93%{opacity:.85;transform:translate(3px,0);clip-path:inset(35% 0 35% 0)}95%{opacity:.85;transform:translate(-2px,1px);clip-path:inset(0 0 75% 0)}97%{opacity:0}}
+
+/* ---------- header ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--night);color:var(--milk);border-bottom:2px solid var(--violet)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:58px}
+.brand img{height:34px;width:auto}
+.nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0;font-family:var(--f-dot);font-size:13px}
+.nav ul a{display:block;text-decoration:none;padding:4px 10px;border-radius:999px;transition:background .2s,color .2s}
+.nav ul a:hover{background:var(--pink);color:var(--milk)}
+@media (max-width:760px){.nav ul{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding-block:56px 80px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center;position:relative}
+.hero .wrap>*{min-width:0}
+.hero-logo{width:100%;max-width:520px;filter:drop-shadow(3px 3px 0 rgba(255,111,181,.45))}
+.badge{display:inline-block;font-family:var(--f-dot);font-size:13px;background:var(--ink);color:var(--milk);padding:2px 12px;border-radius:2px;letter-spacing:.12em}
+.catch{font-family:var(--f-hand);font-size:clamp(22px,3.2vw,34px);line-height:1.6;margin:22px 0 0;text-wrap:balance}
+.catch .hl{background:linear-gradient(transparent 58%,rgba(255,111,181,.45) 58%)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:999px;text-decoration:none;font-weight:700;border:2px solid var(--ink);background:var(--milk);box-shadow:3px 3px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.pill:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.pill.hot{background:var(--pink);color:var(--milk)}
+
+/* window */
+.win{border:2px solid var(--ink);border-radius:8px;background:var(--milk);box-shadow:8px 8px 0 var(--violet);transform:rotate(1.5deg);position:relative}
+.win-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 10px;border-bottom:2px solid var(--ink);background:linear-gradient(90deg,#d9c3ff,#ffc4e3);font-family:var(--f-dot);font-size:13px;border-radius:6px 6px 0 0}
+.win-bar span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.win-btns{display:flex;gap:5px;flex:none}
+.win-btns i{display:block;width:16px;height:16px;border:2px solid var(--ink);border-radius:3px;background:var(--milk);font-style:normal;font-size:10px;line-height:12px;text-align:center}
+.win video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--night);border-radius:0 0 6px 6px}
+.win-foot{position:absolute;right:12px;top:44px;font-family:var(--f-dot);font-size:12px;color:var(--milk);background:rgba(22,11,37,.7);padding:0 8px;border-radius:2px}
+
+/* stickers */
+.st{position:absolute;pointer-events:none;z-index:2}
+.st-bear{width:118px;border-radius:50%;border:5px solid var(--milk);box-shadow:0 4px 14px rgba(36,18,58,.25);overflow:hidden;transform:rotate(-10deg)}
+.float{animation:float 4.5s ease-in-out infinite}
+@keyframes float{50%{translate:0 -10px}}
+.drip{fill:var(--pink)}
+.drip2{fill:var(--violet)}
+
+/* ---------- ticker ---------- */
+.ticker{background:var(--night);color:var(--milk);overflow:hidden;border-block:2px solid var(--violet);font-family:var(--f-dot);font-size:15px;white-space:nowrap}
+.ticker div{display:inline-flex;gap:28px;padding-block:10px;animation:tick 28s linear infinite}
+.ticker b{color:var(--pink);font-weight:400}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- ECG ---------- */
+.ecg{display:block;width:100%;height:60px;color:var(--pink)}
+.ecg path{fill:none;stroke:currentColor;stroke-width:2.5;stroke-linejoin:round;stroke-dasharray:1500;stroke-dashoffset:1500;animation:beat 3.4s linear infinite}
+@keyframes beat{to{stroke-dashoffset:0}}
+
+/* ---------- sections ---------- */
+section{padding-block:80px;position:relative}
+.label{font-family:var(--f-latin);font-weight:700;font-size:13px;letter-spacing:.45em;color:var(--violet);display:flex;align-items:center;gap:10px}
+.label::before{content:"";width:28px;height:2px;background:currentColor}
+h2{font-family:var(--f-hand);font-weight:400;font-size:clamp(30px,5vw,46px);line-height:1.35;margin:.25em 0 .7em;text-wrap:balance}
+h2 .glitch{color:var(--ink)}
+p{margin:0 0 1em}
+.lead{max-width:36em}
+
+/* concept: memo */
+.concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.concept-grid>*{min-width:0}
+.memo{background:var(--milk);padding:40px 32px 32px;border-radius:2px;box-shadow:0 10px 30px rgba(36,18,58,.12);position:relative;transform:rotate(-1deg);
+  background-image:repeating-linear-gradient(transparent 0 33px,#e7dcfb 33px 34px);background-position:0 26px}
+.memo::before{content:"";position:absolute;top:-14px;left:50%;width:120px;height:28px;translate:-50% 0;rotate:-3deg;background:rgba(255,111,181,.55);
+  background-image:repeating-linear-gradient(45deg,transparent 0 6px,rgba(255,255,255,.35) 6px 12px)}
+.memo p{line-height:34px;margin-bottom:34px}
+.memo p:last-of-type{margin-bottom:0}
+.motifs{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding:0;list-style:none}
+.motifs li{font-family:var(--f-dot);font-size:13px;padding:2px 12px;border:2px solid var(--ink);border-radius:999px;background:var(--milk)}
+.photo-stack{position:relative;padding:12px}
+.cheki{background:var(--milk);padding:10px 10px 44px;box-shadow:0 8px 22px rgba(36,18,58,.22);position:relative;margin:0}
+.cheki img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.cheki figcaption{position:absolute;left:12px;right:12px;bottom:8px;font-family:var(--f-hand);font-size:15px;line-height:1.4;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bandaid{position:absolute;width:92px;height:30px;z-index:3}
+@media (max-width:820px){.concept-grid{grid-template-columns:1fr}}
+
+/* inside: dark */
+.inside{background:var(--night);color:var(--milk);overflow:hidden;position:relative}
+.inside::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 30%,rgba(154,108,240,.35),transparent 50%),radial-gradient(circle at 10% 90%,rgba(255,111,181,.22),transparent 45%);pointer-events:none}
+.inside .wrap{position:relative;display:grid;grid-template-columns:1fr 1.4fr;gap:44px;align-items:center}
+.inside .wrap>*{min-width:0}
+.inside h2 .glitch{color:var(--milk);text-shadow:0 0 14px var(--violet)}
+.inside .label{color:var(--ice)}
+.inside video{width:100%;aspect-ratio:16/9;border-radius:4px;border:2px solid var(--violet);box-shadow:0 0 30px rgba(154,108,240,.55);background:#000}
+@media (max-width:820px){.inside .wrap{grid-template-columns:1fr}}
+
+/* gallery: cheki wall */
+.wall{display:grid;grid-template-columns:repeat(4,1fr);gap:34px 26px;margin-top:10px}
+.wall .cheki{cursor:zoom-in;transition:transform .25s,box-shadow .25s}
+.wall .cheki:nth-child(4n+1){rotate:-3deg}.wall .cheki:nth-child(4n+2){rotate:2deg}.wall .cheki:nth-child(4n+3){rotate:-1.5deg}.wall .cheki:nth-child(4n){rotate:3deg}
+.wall .cheki:hover{transform:scale(1.04);box-shadow:0 14px 30px rgba(36,18,58,.3);z-index:4}
+.tape{position:absolute;top:-12px;left:50%;width:74px;height:22px;translate:-50% 0;background:rgba(154,108,240,.42);rotate:-4deg;z-index:3}
+.wall .cheki:nth-child(3n) .tape{background:rgba(255,111,181,.45);rotate:5deg}
+.wall .cheki:nth-child(3n+1) .tape{background:rgba(111,211,255,.45)}
+@media (max-width:900px){.wall{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:600px){.wall{grid-template-columns:repeat(2,1fr);gap:26px 16px}.cheki figcaption{font-size:12px}}
+
+/* jersey */
+.jersey-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px}
+.big7{font-family:var(--f-hand);font-size:clamp(44px,8vw,86px);line-height:1;color:var(--milk);-webkit-text-stroke:2px var(--ink);text-shadow:4px 4px 0 var(--pink);position:relative}
+.big7 b{color:var(--pink);font-weight:400;-webkit-text-stroke:2px var(--ink);text-shadow:4px 4px 0 var(--violet)}
+.swatches{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-top:36px}
+.sw{position:relative;border:2px solid var(--ink);border-radius:10px;padding:12px 12px 16px;background:var(--milk);display:flex;flex-direction:column;gap:6px;min-width:0;box-shadow:4px 4px 0 var(--c);transition:transform .2s}
+.sw:hover{transform:translateY(-4px) rotate(-1deg)}
+.sw .chip{height:78px;border-radius:6px;border:2px solid var(--ink);background:linear-gradient(180deg,var(--c) 0 50%,#1c1424 50% 100%);position:relative;overflow:hidden}
+.sw .chip::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:#bbb;translate:-50% 0}
+.sw h3{margin:4px 0 0;font-family:var(--f-latin);font-size:14px;letter-spacing:.1em}
+.sw .kana{font-family:var(--f-dot);font-size:11px;color:var(--ink-2);line-height:1}
+.sw p{font-size:13px;line-height:1.6;margin:0}
+@media (max-width:1000px){.swatches{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:560px){.swatches{grid-template-columns:repeat(2,1fr)}}
+.jersey-body{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;margin-top:56px;align-items:center}
+.jersey-body>*{min-width:0}
+.points{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.points li{padding:12px 16px 12px 46px;border:2px solid var(--ink);border-radius:10px;background:var(--milk);position:relative;font-weight:700}
+.points li svg{position:absolute;left:14px;top:14px;width:20px;height:20px}
+.flyer{cursor:zoom-in;rotate:2deg}
+.flyer img{aspect-ratio:auto}
+@media (max-width:820px){.jersey-body{grid-template-columns:1fr}}
+
+/* system: 処方箋 / access: 診察券 */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.two>*{min-width:0}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.rx{background:var(--milk);border:2px solid var(--ink);padding:28px 26px 30px;position:relative;box-shadow:6px 6px 0 var(--pink)}
+.rx-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;border-bottom:3px double var(--ink);padding-bottom:10px;margin-bottom:6px}
+.rx-head strong{font-family:var(--f-body);font-weight:900;font-size:26px;letter-spacing:.6em}
+.rx-head small{font-family:var(--f-latin);font-size:11px;letter-spacing:.3em;color:var(--ink-2)}
+.menu{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.menu th,.menu td{text-align:left;padding:13px 2px;border-bottom:1px dashed var(--ink-2);vertical-align:top}
+.menu td{text-align:right;font-family:var(--f-dot);white-space:nowrap}
+.menu th{font-weight:700}
+.menu th small{display:block;font-weight:500;color:var(--ink-2);font-size:12px;font-family:var(--f-hand)}
+.stamp{position:absolute;right:18px;bottom:-26px;width:92px;height:92px;border:3px solid var(--pink);border-radius:50%;color:var(--pink);display:grid;place-items:center;text-align:center;font-weight:900;font-size:15px;line-height:1.2;rotate:-14deg;background:rgba(255,250,255,.6)}
+.tbd{display:inline-block;font-family:var(--f-dot);font-size:11px;color:var(--milk);background:var(--violet);padding:0 6px;border-radius:2px;margin-left:6px;vertical-align:2px;line-height:1.6}
+.note{font-size:13px;color:var(--ink-2);margin-top:14px}
+
+.card{background:linear-gradient(135deg,#ffe3f1,#e6dbff);border:2px solid var(--ink);border-radius:14px;padding:22px 22px 24px;box-shadow:6px 6px 0 var(--violet)}
+.card-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.card-head strong{font-family:var(--f-hand);font-size:28px;font-weight:400}
+.card-head span{font-family:var(--f-dot);font-size:12px;background:var(--ink);color:var(--milk);padding:0 8px;border-radius:2px}
+dl.info{display:grid;grid-template-columns:6.5em 1fr;margin:0;background:var(--milk);border:2px solid var(--ink);border-radius:8px;overflow:hidden}
+dl.info dt,dl.info dd{padding:10px 12px;border-bottom:1px dashed var(--ink-2);margin:0;min-width:0}
+dl.info dt{font-family:var(--f-dot);background:#f4ecff;border-right:2px solid var(--ink)}
+dl.info dt:last-of-type,dl.info dd:last-of-type{border-bottom:0}
+.days{width:100%;margin-top:14px;border-collapse:collapse;background:var(--milk);border:2px solid var(--ink);text-align:center;font-family:var(--f-dot);font-size:13px}
+.days th,.days td{border:1px solid var(--ink-2);padding:5px 2px}
+.days thead th{background:var(--ink);color:var(--milk);font-weight:400}
+.days td{color:var(--pink)}
+
+/* recruit */
+.recruit{background:var(--night);color:var(--milk);text-align:center;overflow:hidden}
+.recruit .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28}
+.recruit::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse,rgba(22,11,37,.3),var(--night) 82%);pointer-events:none}
+.recruit .wrap{position:relative;z-index:1}
+.recruit .label{color:var(--ice);justify-content:center}
+.recruit h2 .glitch{color:var(--milk)}
+.recruit .lead{margin-inline:auto}
+
+/* footer */
+footer{background:var(--night);color:var(--milk);padding-block:40px 48px;text-align:center;border-top:2px dashed var(--violet)}
+footer .foot-logo{width:200px;margin:0 auto 22px}
+.sns{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0 0 22px}
+.sns a{display:inline-block;padding:6px 18px;border:2px solid var(--milk);border-radius:999px;text-decoration:none;font-family:var(--f-dot);font-size:13px}
+.sns a:hover{background:var(--pink);border-color:var(--pink)}
+footer small{color:#bba8d8;font-family:var(--f-latin);letter-spacing:.2em;font-size:11px}
+
+/* sparkle trail */
+.spark{position:fixed;width:14px;height:14px;pointer-events:none;z-index:90;animation:sp .8s ease-out forwards}
+@keyframes sp{to{opacity:0;transform:translateY(16px) scale(.3) rotate(90deg)}}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(22,11,37,.94);display:grid;place-items:center;padding:24px;padding-top:calc(24px + env(safe-area-inset-top,0px))}
+.lb img{max-height:88vh;max-width:100%;border:10px solid var(--milk);border-bottom-width:40px}
+.lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:calc(16px + env(safe-area-inset-right,0px));background:var(--milk);border:2px solid var(--ink);color:var(--ink);font-size:20px;width:44px;height:44px;border-radius:50%;cursor:pointer}
+
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-logo{max-width:400px}
+  .st-bear{width:84px}
+  .hide-sm{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .glitch::before,.glitch::after,.float,.ticker div,.ecg path{animation:none}
+  .ecg path{stroke-dashoffset:0}
+  html{scroll-behavior:auto}
+}
+</style>
+</head><body>
+
+<!-- 共通パーツ: 溶けるハート / 割れたハート / 絆創膏 / 十字架 / キラキラ / 注射器 / カプセル -->
+<svg class="defs" aria-hidden="true">
+  <symbol id="i-drip" viewBox="0 0 100 130"><path d="M50 86C20 64 4 49 4 30 4 15 16 4 30 4c10 0 16 6 20 13 4-7 10-13 20-13 14 0 26 11 26 26 0 19-16 34-46 56Z"/><rect x="24" y="52" width="10" height="44" rx="5"/><rect x="58" y="64" width="9" height="58" rx="4.5"/><rect x="74" y="50" width="8" height="30" rx="4"/><circle cx="62.5" cy="124" r="5"/></symbol>
+  <symbol id="i-broken" viewBox="0 0 100 92"><path d="M50 88C20 66 4 50 4 30 4 15 16 4 30 4c10 0 16 6 20 13 4-7 10-13 20-13 14 0 26 11 26 26 0 20-16 36-46 58Z"/><path d="M50 17 42 34l14 10-10 14 8 14" fill="none" stroke="#fffaff" stroke-width="5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-band" viewBox="0 0 120 40"><rect x="1.5" y="1.5" width="117" height="37" rx="18.5" fill="#ffd9ea" stroke="#24123a" stroke-width="3"/><rect x="42" y="6" width="36" height="28" rx="5" fill="#f7b3d3" stroke="#24123a" stroke-width="2"/><g fill="#24123a"><circle cx="18" cy="14" r="1.8"/><circle cx="26" cy="22" r="1.8"/><circle cx="18" cy="28" r="1.8"/><circle cx="94" cy="14" r="1.8"/><circle cx="102" cy="22" r="1.8"/><circle cx="94" cy="28" r="1.8"/></g><path d="M60 26c-6-4-9-7-9-10 0-2.5 2-4 4-4 2 0 3.5 1.5 5 3 1.5-1.5 3-3 5-3 2 0 4 1.5 4 4 0 3-3 6-9 10Z" fill="#ff6fb5"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 40 60"><path d="M15 0h10v16h15v10H25v34H15V26H0V16h15Z"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 100 100"><path d="M50 0c4 38 12 46 50 50-38 4-46 12-50 50-4-38-12-46-50-50 38-4 46-12 50-50Z"/></symbol>
+  <symbol id="i-syringe" viewBox="0 0 140 40"><g fill="none" stroke="#24123a" stroke-width="3" stroke-linejoin="round"><path d="M30 10h70v20H30Z" fill="#fffaff"/><path d="M30 12h40v16H30Z" fill="#c9a8ff" stroke="none"/><path d="M100 14h14v12h-14M114 20h24M30 6v28M8 20h22M4 10v20"/></g><g stroke="#24123a" stroke-width="2"><path d="M44 10v7M58 10v7M72 10v7M86 10v7"/></g></symbol>
+  <symbol id="i-pill" viewBox="0 0 80 32"><rect x="2" y="2" width="76" height="28" rx="14" fill="#fffaff" stroke="#24123a" stroke-width="3"/><path d="M40 3.5H16a12.5 12.5 0 0 0 0 25h24Z" fill="#ff6fb5"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="少女回路 トップへ"><img src="img/logo-white.png" alt="少女回路"></a>
+    <ul>
+      <li><a href="#concept">♡ コンセプト</a></li>
+      <li><a href="#gallery">♡ ギャラリー</a></li>
+      <li><a href="#jersey">♡ ジャージ</a></li>
+      <li><a href="#system">♡ 料金</a></li>
+      <li><a href="#access">♡ アクセス</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <svg class="st float hide-sm" style="left:3%;top:24px;width:56px;height:73px" aria-hidden="true"><use href="#i-drip" class="drip"/></svg>
+    <svg class="st" style="left:44%;top:14px;width:22px;height:22px;fill:var(--violet)" aria-hidden="true"><use href="#i-spark"/></svg>
+    <svg class="st" style="right:6%;bottom:22px;width:26px;height:39px;fill:var(--ink)" aria-hidden="true"><use href="#i-cross"/></svg>
+    <svg class="st float" style="left:36%;bottom:26px;width:150px;height:43px;rotate:-12deg;animation-delay:-2s" aria-hidden="true"><use href="#i-syringe"/></svg>
+    <div class="wrap">
+      <div>
+        <span class="badge">SUBCULTURE CONCEPT CAFE &amp; BAR</span>
+        <h1 style="margin:18px 0 0"><img class="hero-logo" src="img/logo-ink.png" alt="少女回路 SHOUJO KAIRO サブカルコンセプトカフェ"></h1>
+        <p class="catch">自分らしく、かわいく、最強に。<br><span class="hl">少女回路</span>で一緒に輝こう<svg class="ico" style="color:var(--pink);margin-left:4px" aria-hidden="true"><use href="#i-broken"/></svg></p>
+        <div class="hero-cta">
+          <a class="pill hot" href="#access">お店に行く ♡</a>
+          <a class="pill" href="#gallery">キャストを見る</a>
+        </div>
+      </div>
+      <div style="position:relative">
+        <div class="win">
+          <div class="win-bar"><span>♡ shoujo_kairo_room.mp4</span><span class="win-btns"><i>_</i><i>□</i><i>×</i></span></div>
+          <video src="video/store.mp4" poster="img/video-poster.jpg" autoplay muted loop playsinline aria-label="少女回路の店内"></video>
+          <span class="win-foot">● REC ♡ 病み営業中…</span>
+        </div>
+        <div class="st st-bear float" style="right:-10px;top:-46px"><img src="img/bear.jpg" alt=""></div>
+        <svg class="st" style="left:-18px;bottom:-14px;width:110px;height:37px;rotate:-18deg" aria-hidden="true"><use href="#i-band"/></svg>
+        <svg class="st float" style="right:30px;bottom:-30px;width:70px;height:28px;rotate:20deg;animation-delay:-1s" aria-hidden="true"><use href="#i-pill"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker" aria-hidden="true"><div>
+    <span>自分らしく、かわいく、最強に。</span><b>♡</b><span>SHOUJO KAIRO</span><b>✚</b><span>サブカル女子のための居場所</span><b>♡</b><span>病みかわ・地雷系 大歓迎</span><b>✚</b><span>オリジナルジャージ全7色展開</span><b>♡</b>
+    <span>自分らしく、かわいく、最強に。</span><b>♡</b><span>SHOUJO KAIRO</span><b>✚</b><span>サブカル女子のための居場所</span><b>♡</b><span>病みかわ・地雷系 大歓迎</span><b>✚</b><span>オリジナルジャージ全7色展開</span><b>♡</b>
+  </div></div>
+
+  <section id="concept">
+    <div class="wrap concept-grid">
+      <div class="memo">
+        <div class="label">CONCEPT</div>
+        <h2><span class="glitch" data-text="好きなものを、好きなだけ。">好きなものを、好きなだけ。</span></h2>
+        <p>少女回路は、紫のネオンに包まれたサブカルコンセプトカフェ&amp;バー。壊れたハートと天使の羽、心電図と絆創膏、たくさんのクマたち。ちょっと病んでて、とびきりかわいい世界観の中で、キャストとおしゃべりしながらゆっくり過ごせます。</p>
+        <p>地雷系も病みかわも、はじめての人も大歓迎。白い大理石のカウンターで待ってるね。</p>
+        <ul class="motifs"><li>♡ 紫ネオン</li><li>✚ 絆創膏</li><li>⌇ 心電図</li><li>ʕ•ᴥ•ʔ クマ</li><li>☩ 天使の羽</li></ul>
+      </div>
+      <div class="photo-stack">
+        <figure class="cheki" style="rotate:3deg"><img src="img/interior.jpg" alt="紫のネオンに照らされた店内とカウンター" loading="lazy"><figcaption>おみせのなか♡ ネオンかわいすぎ</figcaption></figure>
+        <svg class="bandaid" style="left:-6px;top:4px;rotate:-30deg" aria-hidden="true"><use href="#i-band"/></svg>
+        <svg class="bandaid" style="right:-4px;bottom:60px;rotate:24deg" aria-hidden="true"><use href="#i-band"/></svg>
+        <svg class="st" style="right:-10px;top:-30px;width:60px;height:78px" aria-hidden="true"><use href="#i-drip" class="drip2"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <svg class="ecg" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 32H380l12-6 10 6h22l10-28 14 54 12-40 10 14h26l12-8 12 8H700l10-18 10 30 10-12h30l8-6 8 12 8-24 8 18H1200"/></svg>
+
+  <div class="inside">
+    <div class="wrap" style="padding-block:72px">
+      <div>
+        <div class="label">INSIDE</div>
+        <h2><span class="glitch" data-text="ネオンの奥へ">ネオンの奥へ</span></h2>
+        <p class="lead">看板の「少女回路」、ハートの心電図、ずらりと並んだボトルとクマたち。店内の雰囲気を動画でどうぞ。</p>
+      </div>
+      <video src="video/store.mp4" poster="img/video-poster.jpg" controls muted playsinline preload="metadata" aria-label="少女回路の店内動画"></video>
+    </div>
+  </div>
+
+  <section id="gallery">
+    <div class="wrap">
+      <div class="label">GALLERY</div>
+      <h2><span class="glitch" data-text="チェキいっぱい撮ったよ">チェキいっぱい撮ったよ</span></h2>
+      <div class="wall">
+        <figure class="cheki"><span class="tape"></span><img src="img/trio-bar.jpg" alt="カウンターでピースする3人のキャスト" loading="lazy"><figcaption>3人そろってピース</figcaption></figure>
+        <figure class="cheki"><span class="tape"></span><img src="img/duo-tall.jpg" alt="ピンクとブルーのジャージで並ぶ2人" loading="lazy" style="object-position:50% 30%"><figcaption>ピンク×ブルー♡</figcaption></figure>
+        <figure class="cheki"><span class="tape"></span><img src="img/selfie3.jpg" alt="3人の自撮り" loading="lazy"><figcaption>じどり〜！！</figcaption></figure>
+        <figure class="cheki"><span class="tape"></span><img src="img/solo-mint.jpg" alt="ミントのジャージでカウンターにもたれるキャスト" loading="lazy"><figcaption>ミント推しです</figcaption></figure>
+        <figure class="cheki"><span class="tape"></span><img src="img/six.jpg" alt="カウンターに集まる6人のキャスト" loading="lazy"><figcaption>みんなでわちゃわちゃ</figcaption></figure>
+        <figure class="cheki"><span class="tape"></span><img src="img/selfie2.jpg" alt="白と黒のジャージで自撮りする2人" loading="lazy"><figcaption>しろくろコーデ</figcaption></figure>
+        <figure class="cheki"><span class="tape"></span><img src="img/trio-venue.jpg" alt="看板の前に並ぶ3人" loading="lazy"><figcaption>看板の前で♡</figcaption></figure>
+        <figure class="cheki"><span class="tape"></span><img src="img/hug.jpg" alt="くっついて立つ2人のキャスト" loading="lazy"><figcaption>なかよし</figcaption></figure>
+        <figure class="cheki"><span class="tape"></span><img src="img/trio-smile.jpg" alt="黒・ミント・白のジャージで笑う3人" loading="lazy"><figcaption>くろ・みんと・しろ</figcaption></figure>
+        <figure class="cheki"><span class="tape"></span><img src="img/trio-young.jpg" alt="ネオン看板の下に並ぶ3人" loading="lazy"><figcaption>ネオンの下で</figcaption></figure>
+        <figure class="cheki"><span class="tape"></span><img src="img/duo-bar.jpg" alt="カウンターの内側に立つ2人" loading="lazy"><figcaption>カウンターでまってるね</figcaption></figure>
+        <figure class="cheki"><span class="tape"></span><img src="img/counter.jpg" alt="バックヤードで寄り添う2人" loading="lazy"><figcaption>ないしょのぎゅー</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <svg class="ecg" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true" style="color:var(--violet)"><path d="M0 32H200l12-6 10 6h22l10-28 14 54 12-40 10 14H620l12-8 12 8h20l10-28 14 54 12-40 10 14H1200"/></svg>
+
+  <section id="jersey">
+    <svg class="st" style="right:4%;top:40px;width:22px;height:22px;fill:var(--pink)" aria-hidden="true"><use href="#i-spark"/></svg>
+    <div class="wrap">
+      <div class="jersey-head">
+        <div>
+          <div class="label">ORIGINAL JERSEY</div>
+          <h2 style="margin-bottom:0"><span class="glitch" data-text="サブカル女子のためのオリジナルジャージ">サブカル女子のための<br>オリジナルジャージ</span></h2>
+        </div>
+        <div class="big7">全<b>7</b>色展開</div>
+      </div>
+      <p class="lead" style="margin-top:18px">あなたの“好き”を着こなして♡ キャストのユニフォームにもなっている、少女回路オリジナルのジャージです。</p>
+
+      <div class="swatches">
+        <div class="sw" style="--c:#f5a9cf"><div class="chip"></div><h3>PINK</h3><span class="kana">ピンク</span><p>甘くて病みかわいい定番カラー♡</p></div>
+        <div class="sw" style="--c:#b49be6"><div class="chip"></div><h3>LAVENDER</h3><span class="kana">ラベンダー</span><p>ふんわり儚げな人気カラー</p></div>
+        <div class="sw" style="--c:#8ec3f2"><div class="chip"></div><h3>BLUE</h3><span class="kana">ブルー</span><p>クールで電脳感たっぷりのカラー</p></div>
+        <div class="sw" style="--c:#e4e4ec"><div class="chip"></div><h3>WHITE</h3><span class="kana">ホワイト</span><p>どんな子にも似合う王道カラー</p></div>
+        <div class="sw" style="--c:#8d8d96"><div class="chip"></div><h3>BLACK</h3><span class="kana">ブラック</span><p>地雷っぽくてかっこいい最強カラー</p></div>
+        <div class="sw" style="--c:#a77ee0"><div class="chip"></div><h3>PURPLE</h3><span class="kana">パープル</span><p>個性爆発！目を引くカラー</p></div>
+        <div class="sw" style="--c:#8fe0d2"><div class="chip"></div><h3>MINT</h3><span class="kana">ミント</span><p>さわやか&amp;ゆめかわな推しカラー♡</p></div>
+      </div>
+
+      <div class="jersey-body">
+        <div>
+          <h3 style="font-family:var(--f-hand);font-weight:400;font-size:26px;margin:0 0 14px">✦ こだわりポイント ✦</h3>
+          <ul class="points">
+            <li><svg style="fill:var(--pink)" aria-hidden="true"><use href="#i-broken"/></svg>ゆったりシルエットで着心地抜群</li>
+            <li><svg style="fill:var(--violet)" aria-hidden="true"><use href="#i-broken"/></svg>ハイネック×フード付きで小顔効果も◎</li>
+            <li><svg style="fill:var(--ice)" aria-hidden="true"><use href="#i-broken"/></svg>おそろいのレッグカバー付きで世界観UP</li>
+            <li><svg style="fill:var(--pink)" aria-hidden="true"><use href="#i-broken"/></svg>動きやすいからお給仕もライブも快適！</li>
+            <li><svg style="fill:var(--violet)" aria-hidden="true"><use href="#i-broken"/></svg>バックデザインもかわいい♡</li>
+          </ul>
+          <p class="note">価格・販売方法 <span class="tbd">確認中</span></p>
+        </div>
+        <figure class="cheki flyer" style="padding-bottom:10px"><span class="tape"></span><img src="img/jersey-flyer.jpg" alt="オリジナルジャージ全7色のフライヤー" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="system" style="padding-top:20px">
+    <div class="wrap two">
+      <div>
+        <div class="label">SYSTEM</div>
+        <h2><span class="glitch" data-text="料金システム">料金システム</span></h2>
+        <div class="rx">
+          <div class="rx-head"><strong>処方箋</strong><small>PRESCRIPTION</small></div>
+          <table class="menu">
+            <tr><th>チャージ<small>60分 ／ 用法：好きなだけ</small></th><td>¥2,000</td></tr>
+            <tr><th>ワンドリンク制<small>1杯めはマストで服用</small></th><td>¥900〜</td></tr>
+            <tr><th>延長<small>30分 ／ 帰りたくない日に</small></th><td>¥1,000</td></tr>
+            <tr><th>キャストドリンク<small>推しに一杯どうぞ</small></th><td>¥1,500〜</td></tr>
+            <tr><th>チェキ<small>キャストと2ショット・らくがき付き</small></th><td>¥1,500</td></tr>
+            <tr><th>シャンパン<small>推しの心拍数、あがります</small></th><td>¥20,000〜</td></tr>
+          </table>
+          <p class="note">※表示価格はすべて税込です。</p>
+          <div class="stamp">少女<br>回路</div>
+        </div>
+      </div>
+      <div id="access">
+        <div class="label">ACCESS</div>
+        <h2><span class="glitch" data-text="店舗情報">店舗情報</span></h2>
+        <div class="card">
+          <div class="card-head"><strong>診察券</strong><span>No.0000 ♡</span></div>
+          <dl class="info">
+            <dt>店名</dt><dd>少女回路 SHOUJO KAIRO</dd>
+            <dt>住所</dt><dd>〒000-0000 ○○県○○市○○<span class="tbd">仮</span></dd>
+            <dt>最寄駅</dt><dd>○○駅 徒歩○分<span class="tbd">仮</span></dd>
+            <dt>受付時間</dt><dd>00:00〜00:00<span class="tbd">仮</span></dd>
+          </dl>
+          <table class="days" aria-label="営業日(仮)">
+            <thead><tr><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日</th></tr></thead>
+            <tbody><tr><td>♡</td><td>♡</td><td>♡</td><td>♡</td><td>♡</td><td>♡</td><td>♡</td></tr></tbody>
+          </table>
+          <p class="note" style="margin-bottom:0">※営業日・定休日は仮です。地図は住所が決まったら設置します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="recruit" id="recruit">
+    <img class="bg" src="img/group6.jpg" alt="" loading="lazy">
+    <div class="wrap">
+      <div class="label">RECRUIT</div>
+      <h2><span class="glitch" data-text="キャスト募集中">キャスト募集中</span> <svg class="ico" style="color:var(--pink);height:1.3em" aria-hidden="true"><use href="#i-drip"/></svg></h2>
+      <p class="lead">好きなものが同じ仲間と、少女回路で一緒に輝きませんか。未経験の子も大歓迎。オリジナルジャージでお給仕しよう。</p>
+      <a class="pill hot" href="#footer" style="border-color:var(--milk);box-shadow:3px 3px 0 var(--violet)">DMで応募する ♡</a>
+    </div>
+  </section>
+</main>
+
+<footer id="footer">
+  <div class="wrap">
+    <img class="foot-logo" src="img/logo-white.png" alt="少女回路">
+    <ul class="sns">
+      <li><a href="#footer">X (Twitter)<span class="tbd">仮</span></a></li>
+      <li><a href="#footer">Instagram<span class="tbd">仮</span></a></li>
+      <li><a href="#footer">TikTok<span class="tbd">仮</span></a></li>
+    </ul>
+    <small>© SHOUJO KAIRO ♡ all hearts reserved</small>
+  </div>
+</footer>
+
+<div class="lb" id="lb" hidden><button type="button" id="lbClose" aria-label="閉じる">×</button><img id="lbImg" alt=""></div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lb'),im=document.getElementById('lbImg');
+  function open(src,alt){im.src=src;im.alt=alt||'';lb.hidden=false;}
+  function close(){lb.hidden=true;im.removeAttribute('src');}
+  document.querySelectorAll('.wall img,.flyer img').forEach(function(el){
+    el.parentNode.addEventListener('click',function(){open(el.currentSrc||el.src,el.alt);});
+  });
+  lb.addEventListener('click',function(e){if(e.target!==im)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close();});
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){var v=document.querySelector('.win video');if(v){v.removeAttribute('autoplay');v.pause();}return;}
+  /* マウスのあとにキラキラ */
+  if(window.matchMedia('(pointer:fine)').matches){
+    var last=0,cols=['#ff6fb5','#9a6cf0','#6fd3ff'];
+    document.addEventListener('mousemove',function(e){
+      var t=Date.now(); if(t-last<45) return; last=t;
+      var s=document.createElementNS('http://www.w3.org/2000/svg','svg');
+      s.setAttribute('class','spark'); s.setAttribute('viewBox','0 0 100 100');
+      s.style.left=(e.clientX-7)+'px'; s.style.top=(e.clientY-7)+'px'; s.style.fill=cols[Math.floor(Math.random()*3)];
+      s.innerHTML='<use href="#i-spark"/>';
+      document.body.appendChild(s); setTimeout(function(){s.remove();},800);
+    });
+  }
+})();
+</script>
+</body></html>
