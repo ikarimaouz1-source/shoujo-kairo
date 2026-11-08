@@ -18,7 +18,7 @@ window.STORE_INFO = {
   address: "東京都豊島区西池袋1丁目41−5",
 
   // 最寄駅(例: "池袋駅 西口 徒歩5分")
-  station: "",
+  station: "池袋駅",
 
   // 営業時間
   hours: "11:00〜23:30",
