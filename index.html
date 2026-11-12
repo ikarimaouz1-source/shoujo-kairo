@@ -436,7 +436,8 @@ footer small{color:#bba8d8;font-family:var(--f-latin);letter-spacing:.2em;font-s
           <dl class="info">
             <!-- 店舗情報の中身は store-info.js で変更できます(ここの文字はJSが動かない時の予備) -->
             <dt>店名</dt><dd data-store="name">少女回路</dd>
-            <dt>住所</dt><dd data-store="address">東京都豊島区西池袋1丁目41−5</dd>
+            <dt>住所</dt><dd data-store="address">〒171-0021 東京都豊島区西池袋１丁目４１−５</dd>
+            <dt>地図</dt><dd><a data-store-map href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E8%A5%BF%E6%B1%A0%E8%A2%8B%EF%BC%91%E4%B8%81%E7%9B%AE%EF%BC%94%EF%BC%91%E2%88%92%EF%BC%95" target="_blank" rel="noopener">Googleマップで見る ♡</a></dd>
             <dt>最寄駅</dt><dd data-store="station">池袋駅</dd>
             <dt>営業時間</dt><dd data-store="hours">11:00〜23:30</dd>
             <dt>LINE</dt><dd><a data-store-link="line" href="https://lin.ee/562ktKI" target="_blank" rel="noopener">友だち追加はこちら ♡</a></dd>
@@ -518,6 +519,10 @@ window.addEventListener('load', function () {
   document.querySelectorAll('[data-store]').forEach(function(el){
     var v=info[el.getAttribute('data-store')];
     if(typeof v==='string') el.textContent=v.trim()||'準備中';
+  });
+  document.querySelectorAll('[data-store-map]').forEach(function(el){
+    var a=(info.address||'').replace(/〒\s*[0-9０-９\-－−]+\s*/,'').trim();
+    if(a) el.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(a);
   });
   document.querySelectorAll('[data-store-link]').forEach(function(el){
     var v=info[el.getAttribute('data-store-link')];
