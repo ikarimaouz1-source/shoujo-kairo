@@ -231,6 +231,8 @@ footer .foot-logo{width:200px;margin:0 auto 22px}
 .sns{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0 0 22px}
 .sns a{display:inline-block;padding:6px 18px;border:2px solid var(--milk);border-radius:999px;text-decoration:none;font-family:var(--f-dot);font-size:13px}
 .sns a:hover{background:var(--pink);border-color:var(--pink)}
+.sns a.line{background:#06c755;border-color:#06c755}
+.sns a.line:hover{background:var(--pink);border-color:var(--pink)}
 footer small{color:#bba8d8;font-family:var(--f-latin);letter-spacing:.2em;font-size:11px}
 
 /* sparkle trail */
@@ -437,6 +439,7 @@ footer small{color:#bba8d8;font-family:var(--f-latin);letter-spacing:.2em;font-s
             <dt>住所</dt><dd data-store="address">東京都豊島区西池袋1丁目41−5</dd>
             <dt>最寄駅</dt><dd data-store="station">池袋駅</dd>
             <dt>営業時間</dt><dd data-store="hours">11:00〜23:30</dd>
+            <dt>LINE</dt><dd><a data-store-link="line" href="https://lin.ee/562ktKI" target="_blank" rel="noopener">友だち追加はこちら ♡</a></dd>
           </dl>
           <table class="days" aria-label="営業日(仮)">
             <thead><tr><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日</th></tr></thead>
@@ -454,7 +457,7 @@ footer small{color:#bba8d8;font-family:var(--f-latin);letter-spacing:.2em;font-s
       <div class="label">RECRUIT</div>
       <h2><span class="glitch" data-text="キャスト募集中">キャスト募集中</span> <svg class="ico" style="color:var(--pink);height:1.3em" aria-hidden="true"><use href="#i-drip"/></svg></h2>
       <p class="lead">好きなものが同じ仲間と、少女回路で一緒に輝きませんか。未経験の子も大歓迎。オリジナルジャージでお給仕しよう。</p>
-      <a class="pill hot" href="#footer" style="border-color:var(--milk);box-shadow:3px 3px 0 var(--violet)">DMで応募する ♡</a>
+      <a class="pill hot" data-store-link="line" href="https://lin.ee/562ktKI" target="_blank" rel="noopener" style="border-color:var(--milk);box-shadow:3px 3px 0 var(--violet)">LINEで応募する ♡</a>
     </div>
   </section>
 </main>
@@ -463,6 +466,7 @@ footer small{color:#bba8d8;font-family:var(--f-latin);letter-spacing:.2em;font-s
   <div class="wrap">
     <img class="foot-logo" src="logo-white.png" alt="少女回路">
     <ul class="sns">
+      <li><a class="line" data-store-link="line" href="https://lin.ee/562ktKI" target="_blank" rel="noopener">LINE</a></li>
       <li><a href="#footer">X (Twitter)<span class="tbd">仮</span></a></li>
       <li><a href="#footer">Instagram<span class="tbd">仮</span></a></li>
       <li><a href="#footer">TikTok<span class="tbd">仮</span></a></li>
@@ -514,6 +518,10 @@ window.addEventListener('load', function () {
   document.querySelectorAll('[data-store]').forEach(function(el){
     var v=info[el.getAttribute('data-store')];
     if(typeof v==='string') el.textContent=v.trim()||'準備中';
+  });
+  document.querySelectorAll('[data-store-link]').forEach(function(el){
+    var v=info[el.getAttribute('data-store-link')];
+    if(typeof v==='string'&&/^https?:\/\//.test(v.trim())) el.href=v.trim();
   });
 })();
 </script>

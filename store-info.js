@@ -22,4 +22,7 @@ window.STORE_INFO = {
 
   // 営業時間
   hours: "11:00〜23:30",
+
+  // LINE公式アカウントのURL(友だち追加・応募のリンク先)
+  line: "https://lin.ee/562ktKI",
 };
